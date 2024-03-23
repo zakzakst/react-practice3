@@ -1,5 +1,24 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "@/styles/page.module.css";
+
+export const metadata: Metadata = {
+  title: "test",
+  description: "page test",
+  openGraph: {
+    title: "test",
+    description: "page test",
+  },
+  authors: {
+    name: "satoshi",
+    url: "https://sample.com/",
+  },
+  keywords: ["keyword1", "keyword2"],
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function Home() {
   return (
