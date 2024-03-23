@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default function Test() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>

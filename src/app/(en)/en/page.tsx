@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/page.module.css";
 
-export default function Home() {
+export default function EnHome() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
