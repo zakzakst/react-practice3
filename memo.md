@@ -11,6 +11,7 @@
 
 - html タグを page ファイルから動的に設定する
 - "use client"でどう違いがでるか（yarn dev の時だとコードに変化なかった。build すると変わる？）
+- layout.tsx と template.tsx の違いピンとこない
 
 ### 読んでおく
 
