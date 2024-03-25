@@ -1,0 +1,136 @@
+$font-family: "Noto Sans JP", sans-serif;
+
+$line-height-s: 1.4;
+$line-height-m: 1.5;
+$line-height-l: 1.7;
+
+$letter-spacing-s: 0.02;
+$letter-spacing-m: 0.04;
+
+$weight-r: 400;
+$weight-m: 500;
+$weight-b: 700;
+
+$heading-list (
+  xxl: (
+    size: 56px,
+    weight: r,
+    line-height: s,
+    letter-spacing: m,
+  ),
+  xl: (
+    size: 45px,
+    weight: r,
+    line-height: s,
+    letter-spacing: m,
+  ),
+  l: (
+    size: 36px,
+    weight: r,
+    line-height: s,
+    letter-spacing: m,
+  ),
+  l-mobile: (
+    size: 32px,
+    weight: m,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  m: (
+    size: 32px,
+    weight: r,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  m-mobile: (
+    size: 28px,
+    weight: m,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  s: (
+    size: 28px,
+    weight: r,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  s-mobile: (
+    size: 24px,
+    weight: m,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  xs: (
+    size: 24px,
+    weight: r,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  xs-mobile: (
+    size: 20px,
+    weight: m,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  xxs: (
+    size: 20px,
+    weight: r,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  xxs-mobile: (
+    size: 16px,
+    weight: m,
+    line-height: l,
+    letter-spacing: m,
+  ),
+)
+
+// TODO: headingのmixin作る
+
+$text-list (
+  body-l: (
+    size: 16px,
+    weight: r,
+    line-height: l,
+    letter-spacing: m,
+  ),
+  body-m: (
+    size: 14px,
+    weight: r,
+    line-height: l,
+    letter-spacing: m,
+  ),
+  label-l: (
+    size: 14px,
+    weight: m,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  label-m: (
+    size: 12px,
+    weight: m,
+    line-height: m,
+    letter-spacing: m,
+  ),
+  caption-l: (
+    size: 12px,
+    weight: r,
+    line-height: l,
+    letter-spacing: s,
+  ),
+  caption-m: (
+    size: 10px,
+    weight: r,
+    line-height: l,
+    letter-spacing: s,
+  ),
+  button: (
+    size: 16px,
+    weight: b,
+    line-height: m,
+    letter-spacing: m,
+  ),
+)
+
+// TODO: textのmixin作る
