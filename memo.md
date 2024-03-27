@@ -22,3 +22,5 @@
 - https://nextjs.org/docs/app/building-your-application/routing
 - https://www.figma.com/file/NL7REEYTrEaAQnuOzBwVpN/Design-System-1.4.1-(Community)?type=design&node-id=7276-532&mode=design&t=LYt0NH5KJin83Xzh-0
 - https://zenn.dev/ptpadan/articles/axe-accessibility
+- https://www.mitsue.co.jp/knowledge/blog/a11y/201903/07_1700.html
+- https://sqripts.com/2023/10/19/73850/
