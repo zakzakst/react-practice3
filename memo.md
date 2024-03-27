@@ -12,6 +12,7 @@
 - html タグを page ファイルから動的に設定する
 - "use client"でどう違いがでるか（yarn dev の時だとコードに変化なかった。build すると変わる？）
 - layout.tsx と template.tsx の違いピンとこない
+- not-found.tsx上手く使えない
 
 ### 読んでおく
 
@@ -24,3 +25,4 @@
 - https://zenn.dev/ptpadan/articles/axe-accessibility
 - https://www.mitsue.co.jp/knowledge/blog/a11y/201903/07_1700.html
 - https://sqripts.com/2023/10/19/73850/
+- https://zenn.dev/tor_inc/articles/e4f7227207c1d2

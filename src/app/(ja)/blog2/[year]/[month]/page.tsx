@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 type Props = {
   params: { year: string; month: string };
 };
@@ -16,6 +18,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: Props) {
+  if (!["2024", "2023"].includes(params.year)) {
+    notFound();
+  }
   return (
     <div>
       blog2 {params.year}/{params.month}
