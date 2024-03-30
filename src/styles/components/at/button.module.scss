@@ -3,4 +3,10 @@
   &:hover {
     background: #f00;
   }
+  &__text {
+    font-weight: bold;
+    &.--success {
+      background: #0f0;
+    }
+  }
 }

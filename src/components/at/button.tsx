@@ -14,6 +14,9 @@ export default function AtButton({
   return (
     <button className={styles.button} onClick={(e) => onButtonClick(e)}>
       {children}
+      <span className={`${styles.button__text} ${styles["--success"]}`}>
+        TEXT
+      </span>
     </button>
   );
 }
