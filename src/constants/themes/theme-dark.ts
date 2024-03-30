@@ -1,4 +1,6 @@
-const theme = {
+import { ThemeColors } from "@/constants/themes/_types";
+
+const theme: ThemeColors = {
   text: {
     body: "#ffffff",
     description: "#b4b4b7",

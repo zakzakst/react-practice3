@@ -1,4 +1,6 @@
-const theme = {
+import { ThemeCommon } from "@/constants/themes/_types";
+
+const theme: ThemeCommon = {
   font: {
     lineHeight: {
       s: 1.4,
