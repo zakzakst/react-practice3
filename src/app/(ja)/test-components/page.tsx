@@ -1,4 +1,5 @@
 import AtButton from "@/components/at/button";
+import MoCounterButton from "@/components/mo/counterButton";
 
 export default function TestComponents() {
   return (
@@ -7,6 +8,7 @@ export default function TestComponents() {
       <p>
         <AtButton>button</AtButton>
       </p>
+      <MoCounterButton />
     </div>
   );
 }
