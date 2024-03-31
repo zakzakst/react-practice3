@@ -6,15 +6,27 @@ export type Todo = {
   done: boolean;
 };
 
-const sampleTodo: Todo = {
-  id: 1,
-  title: "ごみ捨て",
-  done: false,
-};
+const sampleTodos: Todo[] = [
+  {
+    id: 1,
+    title: "ごみ捨て",
+    done: false,
+  },
+  {
+    id: 2,
+    title: "ごみ出し",
+    done: false,
+  },
+  {
+    id: 3,
+    title: "買い物",
+    done: true,
+  },
+];
 
 export const todosAtom = atom<Todo[]>({
   key: "todos",
-  default: [sampleTodo],
+  default: sampleTodos,
 });
 
 export const todosNotDoneSelector = selector({
