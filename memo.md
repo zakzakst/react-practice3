@@ -6,6 +6,8 @@
 - ヘッダーへのスクリプトタグ挿入
 - error ページ、not found ページ
 - pages router での書き方
+- https://smarthr.design/products/components/
+- https://www.figma.com/file/NL7REEYTrEaAQnuOzBwVpN/Design-System-1.4.1-(Community)?type=design&
 
 ### 出来なかった、分からなかったこと
 
@@ -18,10 +20,9 @@
 
 - https://zenn.dev/uhyo/articles/react-server-components-multi-stage
 
-### 対応中
+### メモ
 
-- https://nextjs.org/docs/app/building-your-application/routing
-- https://www.figma.com/file/NL7REEYTrEaAQnuOzBwVpN/Design-System-1.4.1-(Community)?type=design&node-id=7276-532&mode=design&t=LYt0NH5KJin83Xzh-0
+- https://nextjs.org/docs/app/building-your-application/routingnode-id=7276-532&mode=design&t=LYt0NH5KJin83Xzh-0
 - https://zenn.dev/ptpadan/articles/axe-accessibility
 - https://www.mitsue.co.jp/knowledge/blog/a11y/201903/07_1700.html
 - https://sqripts.com/2023/10/19/73850/
@@ -29,6 +30,6 @@
 - https://qiita.com/hosaka_/items/87254d95aa8b87f1ed25
 - https://zenn.dev/rik9228/articles/256d26cbfcaf1e
 - https://tech.asoview.co.jp/entry/2021/10/25/000000
-
+- https://qiita.com/gotchane/items/5b24fc7e04ac32ce046d
 - https://qiita.com/H-goto16/items/d36f8c43584d448061a4
 - https://zenn.dev/tor_inc/articles/663ddee69cfc49
