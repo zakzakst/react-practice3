@@ -6,7 +6,7 @@
 - ヘッダーへのスクリプトタグ挿入
 - error ページ、not found ページ
 - pages router での書き方
-- https://smarthr.design/products/components/
+- https://react-spectrum.adobe.com/react-aria/getting-started.html
 - https://www.figma.com/file/NL7REEYTrEaAQnuOzBwVpN/Design-System-1.4.1-(Community)?type=design&
 
 ### 出来なかった、分からなかったこと
