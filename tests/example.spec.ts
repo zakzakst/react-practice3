@@ -18,7 +18,7 @@ import { test, expect } from "@playwright/test";
 // });
 
 test("ページAとページBのスクリーンショット比較", async ({ page }, testInfo) => {
-  await page.goto("https://s-ishizaki.sakura.ne.jp/sample/03/");
+  await page.goto("http://127.0.0.1:3000/");
   await page.screenshot({
     path: `${testInfo.snapshotPath("result.png")}`,
     fullPage: true,
