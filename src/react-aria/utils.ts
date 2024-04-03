@@ -14,3 +14,5 @@ export type ReferrerPolicy =
   | "strict-origin"
   | "strict-origin-when-cross-origin"
   | "unsafe-url";
+
+export type HTMLAttributeAnchorTarget = "_self" | "_blank" | "_parent" | "_top";
