@@ -1,31 +1,19 @@
 "use client";
 import { type ReactNode } from "react";
+import { Key } from "./utils";
 
 export type BreadcrumbItemProps = {
   children: ReactNode;
-  current: boolean;
-  disabled?: boolean;
-  to?: string;
-  onAction: (key: string | number) => void;
-};
-
-export type BreadcrumbsProps = {
-  className?: string;
-  disabled?: boolean;
-  items: BreadcrumbItemProps[];
+  isCurrent: boolean;
+  isDisabled?: boolean;
+  onAction?: (key: Key) => void;
 };
 
 const BreadcrumbItem = ({
   children,
-  current,
-  disabled,
-  to,
+  isCurrent,
+  isDisabled,
   onAction,
 }: BreadcrumbItemProps) => {
-  const Tag = to ? "a" : "span";
-  return (
-    <Tag href={to || undefined} aria-current={current || undefined}>
-      {children}
-    </Tag>
-  );
+  return <li>{children}</li>;
 };
