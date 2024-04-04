@@ -2,11 +2,12 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-const MyButton = styled.button`
+const MyButton = styled.button<{ $visible?: boolean }>`
   color: ${(p) => {
     return p.theme.text.onFill;
   }};
   background: ${(p) => p.theme.button.normal};
+  display: ${(p) => (p.$visible ? "block" : "none")};
 `;
 
 export default function Page() {
@@ -14,7 +15,7 @@ export default function Page() {
     <>
       <p>page 1</p>
       <p>
-        <MyButton>styled</MyButton>
+        <MyButton $visible={false}>styled</MyButton>
       </p>
       <p>
         <Link href={"/test-template/page2/"}>page 2 へ</Link>
