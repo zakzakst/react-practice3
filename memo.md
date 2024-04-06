@@ -35,4 +35,3 @@
 - https://qiita.com/gotchane/items/5b24fc7e04ac32ce046d
 - https://qiita.com/H-goto16/items/d36f8c43584d448061a4
 - https://zenn.dev/tor_inc/articles/663ddee69cfc49
-- https://github.com/pixiv/charcoal/blob/main/packages/styled/src/builders/spacing.ts

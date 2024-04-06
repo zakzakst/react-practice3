@@ -1,3 +1,6 @@
+// 使ってない
+// 下記を参考に作ろうとしたが、途中でコードを追いきれず諦めた
+// https://github.com/pixiv/charcoal/blob/main/packages/styled/src/builders/spacing.ts
 (() => {
   const spacingProperties = ["margin", "padding"] as const;
   const spacingDirections = [
