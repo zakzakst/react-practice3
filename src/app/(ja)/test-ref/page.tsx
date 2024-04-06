@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useRef, useCallback } from "react";
-// import useRefCallBack from "@/hooks/useRefCallback";
+import useCheckRefHeight from "@/hooks/useCheckRefHeight";
 
 const sleep = async (delay: number) => {
   return new Promise<void>((resolve) => {
@@ -13,12 +13,11 @@ const sleep = async (delay: number) => {
 export default function Page() {
   const [count, setCount] = useState(0);
   const [other, setOther] = useState(0);
-  // const { node, updateNode } = useRefCallBack<HTMLDivElement>();
+  const { isInitialized, updateNode } = useCheckRefHeight();
 
-  // useEffect(() => {
-  //   console.log("hook", node);
-  // }, [node]);
-  // const element = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    console.log("test", isInitialized);
+  }, [isInitialized]);
 
   // useEffect(() => {
   //   console.log(element.current);
@@ -43,14 +42,12 @@ export default function Page() {
 
   return (
     <>
-      <h1>Test Ref</h1>
+      <h1>Test Ref {JSON.stringify(isInitialized)}</h1>
       <button onClick={() => countUp()}>カウントアップ：{count}</button>
       <button onClick={() => setOther(other + 1)}>他：{other}</button>
-      {/* {count > 2 && (
-        <div ref={element} data-count={count}>
-          要素
-        </div>
-      )} */}
+      <div ref={updateNode}>
+        {count > 2 && <div data-count={count}>要素</div>}
+      </div>
       {/* <div
         ref={(node) => {
           if (node) console.log(node);
