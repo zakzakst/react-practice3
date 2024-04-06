@@ -2,6 +2,11 @@
 import styled from "styled-components";
 import Link from "next/link";
 
+const MyHeading = styled.h1`
+  ${(p) => p.theme.spacing.m.a[16]}
+  ${(p) => p.theme.spacing.p.v[16]}
+`;
+
 const MyButton = styled.button<{ $visible?: boolean }>`
   color: ${(p) => {
     return p.theme.text.onFill;
@@ -13,6 +18,7 @@ const MyButton = styled.button<{ $visible?: boolean }>`
 export default function Page() {
   return (
     <>
+      <MyHeading>test styled</MyHeading>
       <p>page 1</p>
       <p>
         <MyButton $visible={false}>styled</MyButton>

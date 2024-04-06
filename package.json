@@ -13,7 +13,7 @@
     "test-report": "playwright show-report",
     "hg:component": "hygen component with-prompt",
     "image-min": "node tasks/image-min.mjs",
-    "check": "ts-node src/constants/mixins/spacing.ts"
+    "check": "ts-node src/constants/mixins/spacing2.ts"
   },
   "dependencies": {
     "next": "14.1.4",
