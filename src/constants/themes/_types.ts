@@ -1,3 +1,5 @@
+import { SpacingObj } from "@/constants/themes/_types-spacing";
+
 export type ThemeCommon = {
   font: {
     lineHeight: {
@@ -32,6 +34,7 @@ export type ThemeCommon = {
     style7: string;
     style8: string;
   };
+  spacing: SpacingObj;
 };
 
 export type ThemeColors = {

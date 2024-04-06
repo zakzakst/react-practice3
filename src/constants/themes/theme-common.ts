@@ -1,4 +1,19 @@
 import { ThemeCommon } from "@/constants/themes/_types";
+import createSpacing from "@/constants/themes/create-spacing";
+
+export const spacingValues = {
+  0: 0,
+  4: 4,
+  8: 8,
+  16: 16,
+  24: 24,
+  40: 40,
+  64: 64,
+  104: 104,
+  168: 168,
+  272: 272,
+  440: 440,
+} as const;
 
 const theme: ThemeCommon = {
   font: {
@@ -38,6 +53,7 @@ const theme: ThemeCommon = {
     style8:
       "0 3px 16px 0 rgba(0, 0, 0, 0.3), 0 14px 40px 7px rgba(0, 0, 0, 0.1)",
   },
+  spacing: createSpacing(spacingValues),
 };
 
 export default theme;
