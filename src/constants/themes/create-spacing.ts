@@ -57,7 +57,8 @@ const createSpacing = (values: SpacingValues): SpacingObj => {
    * @param property margin/paddingを指定するkey
    * @param direction 方向を指定するkey
    * @param value スペース値を指定するkey
-   * @returns CSS文字列
+   * @returns CSS文字列（下記「direction === v」の時の例）
+   * 'margin-top: 4px; margin-bottom: 4px;'
    */
   const getSpacingCss = (
     property: SpacingPropertyKey,
