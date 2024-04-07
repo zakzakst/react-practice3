@@ -39,3 +39,10 @@
 
 - https://qiita.com/masakiwakabayashi/items/204ed2b32254bbc9a5c1
 - https://qiita.com/keitaMax/items/5698eb72106c1fd1397b
+
+- https://storybook.js.org/docs/writing-tests/interaction-testing
+- https://qiita.com/punkshiraishi/items/da9a221c7423f6f2d1c9
+
+- https://storybook.js.org/docs/writing-tests/test-runner
+- https://blog.mmmcorp.co.jp/2023/08/18/storybook-test-runner-practice/
+- https://storybook.js.org/docs/essentials/viewport

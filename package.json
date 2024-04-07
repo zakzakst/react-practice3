@@ -14,7 +14,8 @@
     "hg:component": "hygen component with-prompt",
     "image-min": "node tasks/image-min.mjs",
     "check": "ts-node src/constants/mixins/spacing2.ts",
-    "test-jest": "jest"
+    "test-jest": "jest",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "@storybook/jest": "^0.2.3",
@@ -38,6 +39,7 @@
     "@storybook/nextjs": "^8.0.4",
     "@storybook/react": "^8.0.4",
     "@storybook/test": "^8.0.4",
+    "@storybook/test-runner": "^0.17.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@types/jest": "^29.5.12",
