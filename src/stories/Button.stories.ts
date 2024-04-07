@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { expect } from "@storybook/jest";
+import { fn, userEvent, expect } from "@storybook/test";
+// import { expect } from "@storybook/jest";
 import { screen } from "@storybook/testing-library";
 import { Button } from "./Button";
 
@@ -53,7 +53,10 @@ export const Small: Story = {
   },
 };
 
-Primary.play = async ({ args }) => {
-  const button = await screen.findByTestId("button");
-  expect(button);
+Primary.play = async ({ args, canvasElement, step }) => {
+  await step("This is test", async () => {
+    const button = await screen.findByTestId("button");
+    expect(button).toBeInTheDocument();
+    await userEvent.click(button);
+  });
 };
