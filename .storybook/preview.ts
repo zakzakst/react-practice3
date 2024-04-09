@@ -41,7 +41,7 @@ const preview: Preview = {
         // ...MINIMAL_VIEWPORTS,
         ...customViewports,
       },
-      defaultViewport: "iphone14promax",
+      // defaultViewport: "iphone14promax",
     },
   },
 };
