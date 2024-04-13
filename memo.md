@@ -48,3 +48,7 @@
 - https://storybook.js.org/docs/essentials/viewport
 
 - https://stylexjs.com/
+
+#### react-aria気になった
+
+- https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/test/Tabs.test.js#L314
