@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn, userEvent, expect } from "@storybook/test";
+import { fn, userEvent, expect, waitFor } from "@storybook/test";
 import { screen } from "@storybook/testing-library";
 import { Link } from "./Link";
 
@@ -64,6 +64,12 @@ HasHrefCurrent.play = async ({ args, canvasElement, step }) => {
     );
   });
   const link = links[0];
+
+  await step("クリックイベントが発火する", async () => {
+    await userEvent.click(link);
+    // await waitFor(() => expect(args.onClick).toHaveBeenCalled());
+    expect(args.onClick).toHaveBeenCalled();
+  });
 
   await step(
     "現在ページの指定がある場合、aria-currentの値がpageになる",
