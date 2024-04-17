@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// const { i18n } = require("./next-i18next.config");
 const stylexPlugin = require("@stylexjs/nextjs-plugin");
 const babelrc = require("./.babelrc.js");
 const plugins = babelrc.plugins;
@@ -12,4 +13,5 @@ module.exports = stylexPlugin({
   useCSSLayers: true,
 })({
   transpilePackages: ["@stylexjs/open-props"],
+  // i18n,
 });
