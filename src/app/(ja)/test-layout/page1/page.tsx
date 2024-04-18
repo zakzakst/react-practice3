@@ -8,11 +8,11 @@ const MyHeading = styled.h1`
 `;
 
 const MyButton = styled.button<{ $visible?: boolean }>`
+  display: ${(p) => (p.$visible ? "block" : "none")};
   color: ${(p) => {
     return p.theme.text.onFill;
   }};
   background: ${(p) => p.theme.button.normal};
-  display: ${(p) => (p.$visible ? "block" : "none")};
 `;
 
 export default function Page() {

@@ -15,7 +15,8 @@
     "image-min": "node tasks/image-min.mjs",
     "check": "ts-node src/constants/mixins/spacing2.ts",
     "test-jest": "jest",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "lint:style:fix": "stylelint --fix **/*.tsx"
   },
   "dependencies": {
     "@storybook/jest": "^0.2.3",
@@ -59,7 +60,12 @@
     "imagemin-webp": "^8.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "postcss-styled-syntax": "^0.6.4",
     "storybook": "^8.0.4",
+    "stylelint": "^16.3.1",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-order": "^6.0.4",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5"
