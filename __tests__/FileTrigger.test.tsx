@@ -2,20 +2,17 @@
 
 describe("FileTrigger", () => {
   //
-  it("", () => {});
+  it("should render a FileTrigger with Link", () => {});
 
   //
-  it("", () => {});
+  it("should render a FileTrigger with Button", () => {});
 
   //
-  it("", () => {});
+  it("should upload a file with Button", () => {});
 
   //
-  it("", () => {});
+  it("should upload a file with Link", () => {});
 
   //
-  it("", () => {});
-
-  //
-  it("", () => {});
+  it("should attach a ref to the input", () => {});
 });
