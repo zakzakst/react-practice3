@@ -50,6 +50,8 @@
 - https://stylexjs.com/
 - https://zenn.dev/smartcamp/articles/980ecb72c24b8b
 
+- https://stylelint.io/user-guide/rules
+
 #### react-aria気になった
 
 - https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/test/Tabs.test.js#L314
