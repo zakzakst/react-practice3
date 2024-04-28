@@ -16,7 +16,7 @@
     "check": "ts-node src/constants/mixins/spacing2.ts",
     "test-jest": "jest",
     "test-storybook": "test-storybook",
-    "lint:style:fix": "stylelint --fix **/*.tsx"
+    "lint:style:fix": "stylelint --fix **/*.tsx -c .stylelintrc-tsx.js"
   },
   "dependencies": {
     "@storybook/jest": "^0.2.3",

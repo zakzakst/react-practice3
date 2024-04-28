@@ -36,6 +36,7 @@
 - https://qiita.com/H-goto16/items/d36f8c43584d448061a4
 - https://zenn.dev/tor_inc/articles/663ddee69cfc49
 - https://qiita.com/70ki8suda/items/831727af51c572e10ba8
+- https://lazesoftware.com/ja/blog/230511/
 
 - https://qiita.com/masakiwakabayashi/items/204ed2b32254bbc9a5c1
 - https://qiita.com/keitaMax/items/5698eb72106c1fd1397b
