@@ -24,6 +24,10 @@
 
 ### メモ
 
+```
+npx stylelint --fix **/*.tsx -c .stylelintrc-tsx.js
+```
+
 - https://nextjs.org/docs/app/building-your-application/routingnode-id=7276-532&mode=design&t=LYt0NH5KJin83Xzh-0
 - https://zenn.dev/ptpadan/articles/axe-accessibility
 - https://www.mitsue.co.jp/knowledge/blog/a11y/201903/07_1700.html
