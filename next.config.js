@@ -15,3 +15,11 @@ module.exports = stylexPlugin({
   transpilePackages: ["@stylexjs/open-props"],
   // i18n,
 });
+
+const { createVanillaExtractPlugin } = require("@vanilla-extract/next-plugin");
+const withVanillaExtract = createVanillaExtractPlugin();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+module.exports = withVanillaExtract(nextConfig);
