@@ -66,3 +66,21 @@ export const textarea = style({
   minHeight: 30,
   fieldSizing: "content",
 });
+
+export const grid = style({
+  display: "block grid",
+  gridTemplateColumns: "repeat(auto-fill, minmax(min(360px, 100%), 1fr))",
+  gap: 16,
+});
+
+export const grid2 = style({
+  display: "block grid",
+  gridTemplateColumns: "max-content auto 1fr",
+});
+
+export const grid2Item = style({
+  display: "block grid",
+  gridTemplateColumns: "subgrid",
+  gridColumn: "1 / -1",
+  columnGap: 24,
+});
