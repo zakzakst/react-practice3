@@ -1,5 +1,7 @@
 ## 参考
 
+- https://html.spec.whatwg.org/multipage/
+- https://developer.mozilla.org/ja/docs/Learn/Accessibility/WAI-ARIA_basics
 - https://a11y-guidelines.freee.co.jp/checks/index.html
 - https://waic.jp/translations/WCAG21/Techniques/
 - https://www.aaa11y.com/
