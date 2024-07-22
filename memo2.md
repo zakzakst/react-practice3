@@ -9,6 +9,13 @@
 - アコーディオン的な「もっと見る」ボタンのアクセシビリティ実装
 - 下記自分でも実装してみる
   https://waic.jp/translations/WCAG21/Techniques/aria/ARIA4
+- 動的コンテンツの通知
+- SVGアイコンやWEBフォントアイコンの対応
+- JSとかで新しいウィンドウが開く時の通知
+- 高コントラストモード
+- 動的に読み込まれるコンテンツに対するローディングインジケーター
+- コンテンツがスクロール可能である時のスクロール領域の情報
+- 「スクロールバーが細くて操作しづらい」場合の対応方法
 
 ## https://www.disabilityinnovation.com/
 
@@ -60,6 +67,12 @@
 JSで変数とか持ってるのかな？（調べきれてない）
 
 ### ヘッダーリンクでaria-haspopup利用
+
+### form novalidate は自身でバリデーションする場合付けたほうがいい？
+
+```
+<form method="post" enctype="multipart/form-data" target="gform_ajax_frame_1" id="gform_1" autocomplete="on" action="/#gf_1" data-formid="1" novalidate="">
+```
 
 ### カルーセル詳細に見てみたい
 
