@@ -1,5 +1,6 @@
 "use client";
-import AtButton from "@/components/at/button";
+// import AtButton from "@/components/at/button";
+import Button from "@/components/at/button/Button";
 import MoCounterButton from "@/components/mo/counterButton";
 
 export default function TestComponents() {
@@ -9,7 +10,16 @@ export default function TestComponents() {
     <div>
       <p>test components</p>
       <p>
-        <AtButton>button</AtButton>
+        <Button>button</Button>
+        <Button
+          tag="a"
+          href="#"
+          className="hoge"
+          onClick={() => console.log("test")}
+          color="secondary"
+        >
+          button
+        </Button>
       </p>
       <MoCounterButton />
     </div>

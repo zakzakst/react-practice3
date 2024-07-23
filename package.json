@@ -22,6 +22,7 @@
     "@storybook/jest": "^0.2.3",
     "@storybook/testing-library": "^0.2.2",
     "@stylexjs/stylex": "^0.5.1",
+    "classnames": "^2.5.1",
     "next": "14.1.4",
     "next-i18next": "^15.3.0",
     "react": "^18",
