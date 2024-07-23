@@ -4,16 +4,19 @@
 
 // TODO:
 // 前後にアイコン追加
+// フォーカス時のスタイル
+// classNamesでcolorに指定があったときだけvariantsつけるようにできる？
 
 import { ComponentPropsWithoutRef, ElementType } from "react";
 import classNames from "classnames";
-import { button } from "./styles.css";
+import { Color } from "./models";
+import { button, variants } from "./styles.css";
 
 type TagName = "a" | "button";
 
 type Props<T extends TagName> = {
   tag?: T;
-  color?: "default" | "primary" | "secondary";
+  color?: Color;
 } & ComponentPropsWithoutRef<T>;
 
 // type Props<T extends TagName> = {
@@ -29,12 +32,15 @@ const Button = <T extends TagName>({
 }: Props<T>) => {
   const Tag = tag || ("button" as ElementType);
   return (
-    <Tag
-      className={classNames(button, className, `--color-${color}`)}
-      {...props}
-    >
+    <Tag className={classNames(button, className, variants[color])} {...props}>
       {children}
     </Tag>
+    // <Tag
+    //   className={classNames(button, className, `--color-${color}`)}
+    //   {...props}
+    // >
+    //   {children}
+    // </Tag>
   );
 };
 
