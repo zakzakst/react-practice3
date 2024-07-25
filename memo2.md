@@ -111,3 +111,29 @@ HTML要素の順序を考える時に参考にできそう
 ## https://www.pref.osaka.lg.jp/index.html
 
 ### ヘッダーのナビゲーション詳細開いたら「閉じる」ボタン
+
+## https://www.hsbc.com/
+
+### タブ移動の最初のSkipLinks
+
+```
+<div class="skip-links" data-component="SkipLinks">
+```
+
+### 検索モーダルで使ったことないariaとかあったので、見てみる
+
+```
+<div class="search-panel search-panel--active" role="dialog" aria-modal="true" aria-label="Search">
+```
+
+```
+<span class="quick-results-aria sr-only--live" role="status" aria-live="polite"
+```
+
+## https://www.hsbc.com/website-accessibility
+
+### 初めて見たaria
+
+```
+<div class="rating__step" role="group" aria-labelledby="contentRatingQuestion1" data-step="current">
+```
