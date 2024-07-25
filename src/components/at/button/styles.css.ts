@@ -1,6 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css";
-// variantsのkeyをmodelsのColorで制御することはできる？
-// import { Color } from "./models";
+import { Color } from "./models";
 
 export const button = style({
   backgroundColor: "#000",
@@ -19,7 +18,7 @@ export const button = style({
   // },
 });
 
-export const variants = styleVariants({
+const colorVariants: Record<Color, {}> = {
   default: {},
   primary: {
     backgroundColor: "#f00",
@@ -27,4 +26,9 @@ export const variants = styleVariants({
   secondary: {
     backgroundColor: "#0f0",
   },
+};
+
+export const variants = styleVariants({
+  ...colorVariants,
+  // 他のvariantsもここに足す
 });
