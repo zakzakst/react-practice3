@@ -2,6 +2,7 @@
 
 - https://html.spec.whatwg.org/multipage/
 - https://developer.mozilla.org/ja/docs/Learn/Accessibility/WAI-ARIA_basics
+- https://developer.mozilla.org/ja/docs/Web/Accessibility/ARIA/Attributes
 - https://a11y-guidelines.freee.co.jp/checks/index.html
 - https://waic.jp/translations/WCAG21/Techniques/
 - https://www.aaa11y.com/
@@ -18,6 +19,19 @@
 - 動的に読み込まれるコンテンツに対するローディングインジケーター
 - コンテンツがスクロール可能である時のスクロール領域の情報
 - 「スクロールバーが細くて操作しづらい」場合の対応方法
+- 検索ボックスなどで、押されている「昇順」「降順」ボタンがaria-pressedかaria-selectedか（※読み上げツールで確認したほうが適切なの判断できる？）
+- 古い情報化もだが「section要素に名前がつけられている場合のみ、…section要素が存在することを通知することを、ブラウザと支援技術のベンダーに推奨」とあった。この観点で挙動調べてみる
+- 「さて、aria-hiddenを使って、スクリーンリーダーユーザーに対してコンテンツを隠すのはどんなときでしょうか？一般に、重複を取り除くときです。」の実際の例調べてみる
+- legendがない場合のfieldsetの読み上げ
+- formの注釈のアクセシビリティの方法（下記みたいなの）
+
+```
+最初に<legend>が読み上げられ、続いて<input>に関連づけられたラベルが読み上げられます。続いてヒントテキスト（aria-describedby値によって<input>のid属性に関連づけられたテキスト）が読み上げられます。
+```
+
+- role tabpanel
+- aria-atomicの挙動
+- ユーザーが気づかないうちにダイアログから抜けだして、ページのほかの部分とのインタラクションを行わないように、ダイアログ内のフォーカス可能な最後の要素でTabキーが押されたときにはダイアログ自体にフォーカスが戻るようにします。具体的には、閉じるボタンのkeydownハンドラーを上書きします。
 
 ## https://www.disabilityinnovation.com/
 
