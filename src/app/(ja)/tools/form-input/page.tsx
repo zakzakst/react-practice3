@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import copyClipBoard from "../_utils/copy-clip-board";
 
 type FormInput = {
   selector: string;
@@ -15,19 +16,6 @@ const getFormGetBookmarklet = () => {
 const getFormSetBookmarklet = (formInputs: FormInput[]) => {
   // TODO: スクリプト作成
   return JSON.stringify(formInputs);
-};
-
-/**
- * 文字列をクリップボードにコピー
- * @param str コピーする文字列
- */
-const copyClipBoard = async (str: string) => {
-  try {
-    await navigator.clipboard.writeText(str);
-    alert("クリップボードにコピーしました");
-  } catch (err) {
-    alert("クリップボードへのコピーに失敗しました");
-  }
 };
 
 export default function Page() {
