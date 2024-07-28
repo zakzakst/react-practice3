@@ -2,7 +2,7 @@
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Button } from "../_components/Button";
-import { Input } from "../_components/Form";
+import { Label, Input } from "../_components/Form";
 import copyClipBoard from "../_utils/copy-clip-board";
 
 type FormInput = {
@@ -29,6 +29,7 @@ const getFormSetBookmarklet = (formInputs: FormInput[]) => {
   //   }
   // });
   const link = `javascript:(function(){const%20arr%3D${encodeURIComponent(JSON.stringify(formInputs))}%3Barr.forEach((input)%3D%3E%7Bconst%20targetEl%3Ddocument.querySelector(input.selector)%3Bif(targetEl%3F.type%3D%3D%3D'checkbox')%7BtargetEl.checked%3Dtrue%3B%7Delse%20if(targetEl%3F.tagName%3D%3D%3D'TEXTAREA')%7BtargetEl.value%3Dinput.value%3B%7Delse%7BtargetEl%3F.setAttribute('value'%2Cinput.value)%3B%7D%7D)%3B})();`;
+  // TODO: ボタンコンポーネントを利用する
   return `<a href="${link}">フォーム設定ブックマークレット</a>`;
 };
 
@@ -147,32 +148,41 @@ export default function Page() {
   return (
     <>
       <div>
-        <Input
-          type="text"
-          name="selector"
-          value={selector}
-          onChange={handleChangeSelector}
-        />
-        <Input
-          type="text"
-          name="selector"
-          value={value}
-          onChange={handleChangeValue}
-        />
+        <div>
+          <Label>セレクタ</Label>
+          <Input
+            type="text"
+            name="selector"
+            value={selector}
+            onChange={handleChangeSelector}
+          />
+        </div>
+        <div>
+          <Label>入力値</Label>
+          <Input
+            type="text"
+            name="selector"
+            value={value}
+            onChange={handleChangeValue}
+          />
+        </div>
         <Button onClick={onClickAdd}>追加</Button>
       </div>
-      <ul>
-        {formInputs.map((formInput, index) => (
-          // TODO: 編集モードも作る（編集可能パラメータも付ける？）
-          <li key={index}>
-            <span>
-              {formInput.selector}, {formInput.value}
-            </span>
-            <Button onClick={() => onClickDelete(index)}>削除</Button>
-          </li>
-        ))}
-      </ul>
-      <div>
+      {/* formInputのlengthが0の時の表示 */}
+      <div className="mt-5">
+        <ul>
+          {formInputs.map((formInput, index) => (
+            // TODO: 編集モードも作る（編集可能パラメータも付ける？）
+            <li key={index}>
+              <span>
+                {formInput.selector}, {formInput.value}
+              </span>
+              <Button onClick={() => onClickDelete(index)}>削除</Button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-5 flex items-center gap-x-3">
         <div dangerouslySetInnerHTML={{ __html: formSetBookmarklet }} />
         {/* <a href={formGetBookmarklet}>フォーム取得ブックマークレット</a> */}
         <Button onClick={onClickGetUrl}>共有URLをコピー</Button>

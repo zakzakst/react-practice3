@@ -1,7 +1,7 @@
 "use client";
 import { useState, useCallback, useMemo } from "react";
 import { Button } from "../_components/Button";
-import { Input, Textarea } from "../_components/Form";
+import { Label, Input, Textarea } from "../_components/Form";
 import copyClipBoard from "../_utils/copy-clip-board";
 
 // 参考
@@ -30,7 +30,7 @@ const getBookmarkletScript = (scriptStr: string) => {
 
 export default function Page() {
   const initialScript = "alert(new Date());";
-  const [name, setName] = useState("スクリプト名");
+  const [name, setName] = useState("日付表示");
   const [baseScript, setBaseScript] = useState<string>(initialScript);
 
   /**
@@ -54,6 +54,7 @@ export default function Page() {
   );
 
   const bookmarkletLinkEl = useMemo(() => {
+    // TODO: ボタンコンポーネントを利用する
     return `<a href=${getBookmarkletScript(baseScript)}>${name}</a>`;
   }, [baseScript, name]);
 
@@ -73,6 +74,7 @@ export default function Page() {
     <>
       <div>
         <div>
+          <Label>ブックマークレット名</Label>
           <Input
             type="text"
             name="name"
@@ -80,15 +82,20 @@ export default function Page() {
             onChange={handleChangeName}
           />
         </div>
-        <Textarea
-          value={baseScript}
-          onChange={handleChangeScript}
-          rows={10}
-          cols={80}
-        />
-        <div dangerouslySetInnerHTML={{ __html: bookmarkletLinkEl }} />
-        <Button onClick={onClickCopy}>スクリプトをコピー</Button>
-        <Button onClick={onClickTest}>テスト実行</Button>
+        <div className="mt-5">
+          <Label>スクリプト</Label>
+          <Textarea
+            value={baseScript}
+            onChange={handleChangeScript}
+            rows={10}
+            cols={80}
+          />
+        </div>
+        <div className="mt-5 flex items-center gap-x-3">
+          <div dangerouslySetInnerHTML={{ __html: bookmarkletLinkEl }} />
+          <Button onClick={onClickCopy}>スクリプトをコピー</Button>
+          <Button onClick={onClickTest}>テスト実行</Button>
+        </div>
       </div>
     </>
   );
