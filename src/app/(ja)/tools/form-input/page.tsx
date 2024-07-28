@@ -8,14 +8,26 @@ type FormInput = {
   value: string;
 };
 
-const getFormGetBookmarklet = () => {
-  // TODO: スクリプト作成
-  return "hoge";
-};
+// const getFormGetBookmarklet = () => {
+//   // TODO: スクリプト作成
+//   return "hoge";
+// };
 
 const getFormSetBookmarklet = (formInputs: FormInput[]) => {
-  // TODO: スクリプト作成
-  return JSON.stringify(formInputs);
+  // NOTE: 元のスクリプト
+  // const arr = JSON.stringify(formInputs);
+  // arr.forEach((input) => {
+  //   const targetEl = document.querySelector(input.selector);
+  //   if (targetEl?.type === 'checkbox') {
+  //     targetEl.checked = true;
+  //   } else if (targetEl?.tagName === 'TEXTAREA') {
+  //     targetEl.value = input.value;
+  //   } else {
+  //     targetEl?.setAttribute('value', input.value);
+  //   }
+  // });
+  const link = `javascript:(function(){const%20arr%3D${encodeURIComponent(JSON.stringify(formInputs))}%3Barr.forEach((input)%3D%3E%7Bconst%20targetEl%3Ddocument.querySelector(input.selector)%3Bif(targetEl%3F.type%3D%3D%3D'checkbox')%7BtargetEl.checked%3Dtrue%3B%7Delse%20if(targetEl%3F.tagName%3D%3D%3D'TEXTAREA')%7BtargetEl.value%3Dinput.value%3B%7Delse%7BtargetEl%3F.setAttribute('value'%2Cinput.value)%3B%7D%7D)%3B})();`;
+  return `<a href="${link}">フォーム設定ブックマークレット</a>`;
 };
 
 export default function Page() {
@@ -101,9 +113,9 @@ export default function Page() {
     copyClipBoard(url);
   }, [formInputs, pathname]);
 
-  const formGetBookmarklet = useMemo(() => {
-    return getFormGetBookmarklet();
-  }, []);
+  // const formGetBookmarklet = useMemo(() => {
+  //   return getFormGetBookmarklet();
+  // }, []);
 
   const formSetBookmarklet = useMemo(() => {
     return getFormSetBookmarklet(formInputs);
@@ -149,6 +161,7 @@ export default function Page() {
       </div>
       <ul>
         {formInputs.map((formInput, index) => (
+          // TODO: 編集モードも作る（編集可能パラメータも付ける？）
           <li key={index}>
             <span>
               {formInput.selector}, {formInput.value}
@@ -158,8 +171,8 @@ export default function Page() {
         ))}
       </ul>
       <div>
-        <a href={formSetBookmarklet}>フォーム設定ブックマークレット</a>
-        <a href={formGetBookmarklet}>フォーム取得ブックマークレット</a>
+        <div dangerouslySetInnerHTML={{ __html: formSetBookmarklet }} />
+        {/* <a href={formGetBookmarklet}>フォーム取得ブックマークレット</a> */}
         <button onClick={onClickGetUrl}>共有URLをコピー</button>
       </div>
     </>

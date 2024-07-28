@@ -22,7 +22,7 @@ const getShrinkScript = (scriptStr: string): string => {
 
 const getBookmarkletScript = (scriptStr: string) => {
   const shrinkScript = getShrinkScript(scriptStr);
-  const bookmarkletScript = `javascript:${encodeURIComponent(shrinkScript)}void(0);`;
+  const bookmarkletScript = `javascript:(function(){${encodeURIComponent(shrinkScript)}})();`;
   return bookmarkletScript;
 };
 
