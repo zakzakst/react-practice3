@@ -1,5 +1,6 @@
 "use client";
 import { useState, useCallback, useMemo } from "react";
+import Button from "../_components/Button";
 import copyClipBoard from "../_utils/copy-clip-board";
 
 // 参考
@@ -42,7 +43,7 @@ export default function Page() {
   );
 
   const bookmarkletLinkEl = useMemo(() => {
-    return `<a href=${getBookmarkletScript(baseScript)}>${name}</a>`;
+    return `<Button href=${getBookmarkletScript(baseScript)}>${name}</Button>`;
   }, [baseScript, name]);
 
   const onClickCopy = useCallback(() => {
@@ -75,8 +76,8 @@ export default function Page() {
           cols={80}
         />
         <div dangerouslySetInnerHTML={{ __html: bookmarkletLinkEl }} />
-        <button onClick={onClickCopy}>スクリプトをコピー</button>
-        <button onClick={onClickTest}>テスト実行</button>
+        <Button onClick={onClickCopy}>スクリプトをコピー</Button>
+        <Button onClick={onClickTest}>テスト実行</Button>
       </div>
     </>
   );
