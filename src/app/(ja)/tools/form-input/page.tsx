@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { Button } from "../_components/Button";
+import { Input } from "../_components/Form";
 import copyClipBoard from "../_utils/copy-clip-board";
 
 type FormInput = {
@@ -145,19 +147,19 @@ export default function Page() {
   return (
     <>
       <div>
-        <input
+        <Input
           type="text"
           name="selector"
           value={selector}
           onChange={handleChangeSelector}
         />
-        <input
+        <Input
           type="text"
           name="selector"
           value={value}
           onChange={handleChangeValue}
         />
-        <button onClick={onClickAdd}>追加</button>
+        <Button onClick={onClickAdd}>追加</Button>
       </div>
       <ul>
         {formInputs.map((formInput, index) => (
@@ -166,14 +168,14 @@ export default function Page() {
             <span>
               {formInput.selector}, {formInput.value}
             </span>
-            <button onClick={() => onClickDelete(index)}>削除</button>
+            <Button onClick={() => onClickDelete(index)}>削除</Button>
           </li>
         ))}
       </ul>
       <div>
         <div dangerouslySetInnerHTML={{ __html: formSetBookmarklet }} />
         {/* <a href={formGetBookmarklet}>フォーム取得ブックマークレット</a> */}
-        <button onClick={onClickGetUrl}>共有URLをコピー</button>
+        <Button onClick={onClickGetUrl}>共有URLをコピー</Button>
       </div>
     </>
   );

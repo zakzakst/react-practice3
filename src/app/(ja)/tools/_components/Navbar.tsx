@@ -7,7 +7,7 @@ type NavBarLink = {
   text: string;
 };
 
-export default function Navbar() {
+export function Navbar() {
   const pathname = usePathname();
 
   const links: NavBarLink[] = [
