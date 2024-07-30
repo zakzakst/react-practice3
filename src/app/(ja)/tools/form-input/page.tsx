@@ -29,8 +29,7 @@ const getFormSetBookmarklet = (formInputs: FormInput[]) => {
   //   }
   // });
   const link = `javascript:(function(){const%20arr%3D${encodeURIComponent(JSON.stringify(formInputs))}%3Barr.forEach((input)%3D%3E%7Bconst%20targetEl%3Ddocument.querySelector(input.selector)%3Bif(targetEl%3F.type%3D%3D%3D'checkbox')%7BtargetEl.checked%3Dtrue%3B%7Delse%20if(targetEl%3F.tagName%3D%3D%3D'TEXTAREA')%7BtargetEl.value%3Dinput.value%3B%7Delse%7BtargetEl%3F.setAttribute('value'%2Cinput.value)%3B%7D%7D)%3B})();`;
-  // TODO: ボタンコンポーネントを利用する
-  return `<a href="${link}">フォーム設定ブックマークレット</a>`;
+  return link;
 };
 
 export default function Page() {
@@ -147,7 +146,7 @@ export default function Page() {
 
   return (
     <>
-      <div>
+      <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
         <div>
           <Label>セレクタ</Label>
           <Input
@@ -166,24 +165,35 @@ export default function Page() {
             onChange={handleChangeValue}
           />
         </div>
+      </div>
+      <div className="mt-3">
         <Button onClick={onClickAdd}>追加</Button>
       </div>
-      {/* formInputのlengthが0の時の表示 */}
-      <div className="mt-5">
-        <ul>
-          {formInputs.map((formInput, index) => (
-            // TODO: 編集モードも作る（編集可能パラメータも付ける？）
-            <li key={index}>
-              <span>
-                {formInput.selector}, {formInput.value}
-              </span>
-              <Button onClick={() => onClickDelete(index)}>削除</Button>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="mt-5 flex items-center gap-x-3">
-        <div dangerouslySetInnerHTML={{ __html: formSetBookmarklet }} />
+
+      {formInputs.length ? (
+        <div className="mt-6">
+          <ul>
+            {formInputs.map((formInput, index) => (
+              // TODO: 編集モードも作る（編集可能パラメータも付ける？）
+              <li key={index}>
+                <span>
+                  {formInput.selector}, {formInput.value}
+                </span>
+                <Button onClick={() => onClickDelete(index)}>削除</Button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="mt-6">
+          <p>フォーム入力するデータを登録してください</p>
+        </div>
+      )}
+
+      <div className="mt-5 flex items-center gap-6">
+        <Button isAnchor={true} href={formSetBookmarklet}>
+          フォーム設定ブックマークレット
+        </Button>
         {/* <a href={formGetBookmarklet}>フォーム取得ブックマークレット</a> */}
         <Button onClick={onClickGetUrl}>共有URLをコピー</Button>
       </div>
