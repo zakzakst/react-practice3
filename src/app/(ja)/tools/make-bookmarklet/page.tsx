@@ -53,10 +53,9 @@ export default function Page() {
     []
   );
 
-  const bookmarkletLinkEl = useMemo(() => {
-    // TODO: ボタンコンポーネントを利用する
-    return `<a href=${getBookmarkletScript(baseScript)}>${name}</a>`;
-  }, [baseScript, name]);
+  const bookmarkletLink = useMemo(() => {
+    return getBookmarkletScript(baseScript);
+  }, [baseScript]);
 
   const onClickCopy = useCallback(() => {
     copyClipBoard(getBookmarkletScript(baseScript));
@@ -92,7 +91,9 @@ export default function Page() {
           />
         </div>
         <div className="mt-5 flex items-center gap-x-3">
-          <div dangerouslySetInnerHTML={{ __html: bookmarkletLinkEl }} />
+          <Button isAnchor={true} href={bookmarkletLink}>
+            {name}
+          </Button>
           <Button onClick={onClickCopy}>スクリプトをコピー</Button>
           <Button onClick={onClickTest}>テスト実行</Button>
         </div>

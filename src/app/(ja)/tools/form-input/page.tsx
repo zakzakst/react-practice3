@@ -3,6 +3,13 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Button } from "../_components/Button";
 import { Label, Input } from "../_components/Form";
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableTh,
+  TableTd,
+} from "../_components/Table";
 import copyClipBoard from "../_utils/copy-clip-board";
 
 type FormInput = {
@@ -36,6 +43,7 @@ export default function Page() {
   const [formInputs, setFormInputs] = useState<FormInput[]>([]);
   const [selector, setSelector] = useState<string>("");
   const [value, setValue] = useState<string>("");
+  const [editRowNum, setEditRowNum] = useState<number | null>(null);
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -172,17 +180,53 @@ export default function Page() {
 
       {formInputs.length ? (
         <div className="mt-6">
-          <ul>
-            {formInputs.map((formInput, index) => (
-              // TODO: 編集モードも作る（編集可能パラメータも付ける？）
-              <li key={index}>
-                <span>
-                  {formInput.selector}, {formInput.value}
-                </span>
-                <Button onClick={() => onClickDelete(index)}>削除</Button>
-              </li>
-            ))}
-          </ul>
+          <Table>
+            <TableHead>
+              <TableTh>セレクタ</TableTh>
+              <TableTh>入力値</TableTh>
+              <TableTh>操作</TableTh>
+            </TableHead>
+            <TableBody>
+              {formInputs.map((formInput, index) => (
+                <tr key={index}>
+                  {editRowNum === index ? (
+                    <>
+                      {/* TODO: 編集状態実装 */}
+                      <TableTd>
+                        <Input type="text" />
+                      </TableTd>
+                      <TableTd>
+                        <Input type="text" />
+                      </TableTd>
+                      <TableTd>
+                        <div className="flex items-center gap-2">
+                          <Button>決定</Button>
+                          <Button onClick={() => setEditRowNum(null)}>
+                            戻る
+                          </Button>
+                        </div>
+                      </TableTd>
+                    </>
+                  ) : (
+                    <>
+                      <TableTd>{formInput.selector}</TableTd>
+                      <TableTd>{formInput.value}</TableTd>
+                      <TableTd>
+                        <div className="flex items-center gap-2">
+                          <Button onClick={() => onClickDelete(index)}>
+                            削除
+                          </Button>
+                          <Button onClick={() => setEditRowNum(index)}>
+                            編集
+                          </Button>
+                        </div>
+                      </TableTd>
+                    </>
+                  )}
+                </tr>
+              ))}
+            </TableBody>
+          </Table>
         </div>
       ) : (
         <div className="mt-6">
