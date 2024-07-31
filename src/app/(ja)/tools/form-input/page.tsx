@@ -43,6 +43,8 @@ export default function Page() {
   const [formInputs, setFormInputs] = useState<FormInput[]>([]);
   const [selector, setSelector] = useState<string>("");
   const [value, setValue] = useState<string>("");
+  const [editSelector, setEditSelector] = useState<string>("");
+  const [editValue, setEditValue] = useState<string>("");
   const [editRowNum, setEditRowNum] = useState<number | null>(null);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -71,6 +73,26 @@ export default function Page() {
   const handleChangeValue = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value);
+    },
+    []
+  );
+
+  /**
+   * セレクター編集入力欄が変更された時の処理
+   */
+  const handleChangeEditSelector = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEditSelector(e.target.value);
+    },
+    []
+  );
+
+  /**
+   * 値編集入力欄が変更された時の処理
+   */
+  const handleChangeEditValue = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEditValue(e.target.value);
     },
     []
   );
@@ -106,6 +128,46 @@ export default function Page() {
     },
     [formInputs]
   );
+
+  /**
+   * 編集ボタンクリック時の処理
+   */
+  const onClickEdit = useCallback(
+    (targetIndex: number) => {
+      const { selector, value } = formInputs[targetIndex];
+      setEditSelector(selector);
+      setEditValue(value);
+      setEditRowNum(targetIndex);
+    },
+    [formInputs]
+  );
+
+  /**
+   * 更新ボタンクリック時の処理
+   */
+  const onClickUpdate = useCallback(
+    (targetIndex: number) => {
+      const newFormInputs = formInputs.map((inputs, index) => {
+        return targetIndex === index
+          ? { selector: editSelector, value: editValue }
+          : inputs;
+      });
+      setFormInputs(newFormInputs);
+      setEditSelector("");
+      setEditValue("");
+      setEditRowNum(null);
+    },
+    [formInputs, editSelector, editValue]
+  );
+
+  /**
+   * 戻るボタンクリック時の処理
+   */
+  const onClickReturn = useCallback(() => {
+    setEditSelector("");
+    setEditValue("");
+    setEditRowNum(null);
+  }, []);
 
   /**
    * 初期値設定パラメータ付きのURLを取得する
@@ -182,9 +244,11 @@ export default function Page() {
         <div className="mt-6">
           <Table>
             <TableHead>
-              <TableTh>セレクタ</TableTh>
-              <TableTh>入力値</TableTh>
-              <TableTh>操作</TableTh>
+              <tr>
+                <TableTh>セレクタ</TableTh>
+                <TableTh>入力値</TableTh>
+                <TableTh>操作</TableTh>
+              </tr>
             </TableHead>
             <TableBody>
               {formInputs.map((formInput, index) => (
@@ -193,17 +257,27 @@ export default function Page() {
                     <>
                       {/* TODO: 編集状態実装 */}
                       <TableTd>
-                        <Input type="text" />
+                        <Input
+                          type="text"
+                          name="editSelector"
+                          value={editSelector}
+                          onChange={handleChangeEditSelector}
+                        />
                       </TableTd>
                       <TableTd>
-                        <Input type="text" />
+                        <Input
+                          type="text"
+                          name="editValue"
+                          value={editValue}
+                          onChange={handleChangeEditValue}
+                        />
                       </TableTd>
                       <TableTd>
                         <div className="flex items-center gap-2">
-                          <Button>決定</Button>
-                          <Button onClick={() => setEditRowNum(null)}>
-                            戻る
+                          <Button onClick={() => onClickUpdate(index)}>
+                            更新
                           </Button>
+                          <Button onClick={() => onClickReturn()}>戻る</Button>
                         </div>
                       </TableTd>
                     </>
@@ -216,7 +290,7 @@ export default function Page() {
                           <Button onClick={() => onClickDelete(index)}>
                             削除
                           </Button>
-                          <Button onClick={() => setEditRowNum(index)}>
+                          <Button onClick={() => onClickEdit(index)}>
                             編集
                           </Button>
                         </div>
