@@ -9,6 +9,10 @@
     "workbench.colorCustomizations": {
       // "titleBar.activeBackground": "#660000"
     },
+    "workbench.editor.customLabels.patterns": {
+      "**/index.*": "${dirname} .../${dirname(1)}",
+      "**/{page,layout,template,route,actions,hooks,components,utils,types}.{js,ts,jsx,tsx}": "${dirname}/${filename}.${extname} .../${dirname(1)}",
+    },
     // 設定：ファイルエクスプローラーに非表示
     "files.exclude": {
       // "dist": true,
