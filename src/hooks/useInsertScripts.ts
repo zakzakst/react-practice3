@@ -2,8 +2,8 @@ import { useRecoilValue, useSetRecoilState, SetterOrUpdater } from "recoil";
 import { InsertScript, insertScriptsAtom } from "@/states/insert-scripts";
 
 const useInsertScripts = () => {
-  const state: InsertScript[] = useRecoilValue(insertScriptsAtom);
-  const update: SetterOrUpdater<InsertScript[]> =
+  const state: InsertScript = useRecoilValue(insertScriptsAtom);
+  const update: SetterOrUpdater<InsertScript> =
     useSetRecoilState(insertScriptsAtom);
 
   // TODO: id stringでなくて設定しているscriptsに限定したい
