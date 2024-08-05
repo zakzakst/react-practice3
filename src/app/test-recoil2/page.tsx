@@ -20,6 +20,9 @@ export default function Page() {
       setTimeout(() => {
         console.log("真偽変更", isInsertedTest1);
       }, 40);
+      // Promise.resolve().then(() => {
+      //   console.log("真偽変更", isInsertedTest1);
+      // });
     }
   }, [isInsertedTest1]);
 
