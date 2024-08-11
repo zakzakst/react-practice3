@@ -10,6 +10,8 @@
 - https://react-spectrum.adobe.com/react-aria/getting-started.html
 - https://www.figma.com/file/NL7REEYTrEaAQnuOzBwVpN/Design-System-1.4.1-(Community)?type=design&
 - https://github.com/adobe/react-spectrum/tree/main/packages/react-aria-components/src
+- slotみたいなのの設定方法（propsでreact elementを渡す？）
+- reactのレンダリングが完了したタイミングの取得
 
 ### 出来なかった、分からなかったこと
 
