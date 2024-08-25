@@ -1,4 +1,6 @@
 // 参考：https://inclusive-components.design/cards/
+"use client";
+import { useRef, MouseEvent } from "react";
 import { card as style } from "./styles.css";
 
 type CardProps = {
@@ -22,15 +24,27 @@ const Item = (props: CardProps) => {
     thumbnailAlt,
   } = props;
 
+  // TODO: useStateでdownとup保持してhandleClickをmousedown,mouseupに変える
+
+  const linkRef = useRef<HTMLAnchorElement>(null);
+  const handleClick = (e: MouseEvent) => {
+    if (!linkRef.current || linkRef.current === e.target) return;
+    console.log("click");
+    linkRef.current.click();
+  };
+
   return (
-    <li className={style.item}>
+    <li className={style.item} onClick={handleClick}>
       <div className={style.body}>
         <h2>
           <a href={link}>{title}</a>
         </h2>
         <p>{description}</p>
         <small>
-          By <a href={authorLink}>{author}</a>
+          By{" "}
+          <a href={authorLink} ref={linkRef}>
+            {author}
+          </a>
         </small>
       </div>
       <div className={style.thumbContainer}>
