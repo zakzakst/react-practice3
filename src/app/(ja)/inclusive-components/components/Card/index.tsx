@@ -1,6 +1,6 @@
 // 参考：https://inclusive-components.design/cards/
 "use client";
-import { useState, useRef, MouseEvent } from "react";
+import { useEffect, useRef, MouseEvent } from "react";
 import { card as style } from "./styles.css";
 
 type CardProps = {
@@ -13,6 +13,10 @@ type CardProps = {
   thumbnailAlt: string;
 };
 
+// TODO: この変数の記述上手くできないか調べる
+let down: number = 0;
+let up: number = 0;
+
 const Item = (props: CardProps) => {
   const {
     link,
@@ -24,22 +28,32 @@ const Item = (props: CardProps) => {
     thumbnailAlt,
   } = props;
 
-  // TODO: useStateでdownとup保持してhandleClickをmousedown,mouseupに変える
-  const [down, setDown] = useState<Date>();
-  const [up, setUp] = useState<Date>();
+  const cardRef = useRef<HTMLLIElement>(null);
   const linkRef = useRef<HTMLAnchorElement>(null);
 
+  useEffect(() => {
+    if (!cardRef.current) return;
+    // JavaScriptが失敗すると、スタイルが誤解を招くため、JavaScriptでスタイルを追加
+    cardRef.current.style.cursor = "pointer";
+  }, []);
+
   const handleMouseDown = (e: MouseEvent) => {
-    // // 判定linkRef.current === e.targetでなくaタグかどうかにする
-    // if (!linkRef.current || linkRef.current === e.target) return;
-    // console.log("click");
-    // linkRef.current.click();
+    down = +new Date();
   };
 
   const handleMouseUp = (e: MouseEvent) => {
-    // // 判定linkRef.current === e.targetでなくaタグかどうかにする
-    // if (!linkRef.current || linkRef.current === e.target) return;
-    // linkRef.current.click();
+    up = +new Date();
+    if (up - down < 200) return;
+
+    // tagName プロパティは HTMLElement 型に存在するので、e.target を HTMLElement 型にキャストしてから tagName を参照する必要があります。
+    // e.target が HTMLElement のインスタンスであるかどうかを確認し、そうであれば tagName を参照するようにしています。これにより、型の不一致によるエラーが解消されます。
+    if (
+      !linkRef.current ||
+      !(e.target instanceof HTMLElement) ||
+      e.target.tagName === "a"
+    )
+      return;
+    linkRef.current.click();
   };
 
   return (
@@ -47,17 +61,17 @@ const Item = (props: CardProps) => {
       className={style.item}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      ref={cardRef}
     >
       <div className={style.body}>
         <h2>
-          <a href={link}>{title}</a>
+          <a href={link} ref={linkRef}>
+            {title}
+          </a>
         </h2>
         <p>{description}</p>
         <small>
-          By{" "}
-          <a href={authorLink} ref={linkRef}>
-            {author}
-          </a>
+          By <a href={authorLink}>{author}</a>
         </small>
       </div>
       <div className={style.thumbContainer}>
@@ -123,11 +137,11 @@ const dummyItems = [
 
 export const Items = () => {
   const items: CardProps[] = dummyItems.map((item) => ({
-    link: "#",
+    link: "#link",
     title: item.title,
     description: item.description,
     author: item.author,
-    authorLink: "#",
+    authorLink: "#author",
     thumbnail: `https://picsum.photos/id/${item.thumbnailId}/200/300`,
     thumbnailAlt: "",
   }));
