@@ -1,6 +1,6 @@
 // 参考：https://inclusive-components.design/cards/
 "use client";
-import { useRef, MouseEvent } from "react";
+import { useState, useRef, MouseEvent } from "react";
 import { card as style } from "./styles.css";
 
 type CardProps = {
@@ -25,16 +25,29 @@ const Item = (props: CardProps) => {
   } = props;
 
   // TODO: useStateでdownとup保持してhandleClickをmousedown,mouseupに変える
-
+  const [down, setDown] = useState<Date>();
+  const [up, setUp] = useState<Date>();
   const linkRef = useRef<HTMLAnchorElement>(null);
-  const handleClick = (e: MouseEvent) => {
-    if (!linkRef.current || linkRef.current === e.target) return;
-    console.log("click");
-    linkRef.current.click();
+
+  const handleMouseDown = (e: MouseEvent) => {
+    // // 判定linkRef.current === e.targetでなくaタグかどうかにする
+    // if (!linkRef.current || linkRef.current === e.target) return;
+    // console.log("click");
+    // linkRef.current.click();
+  };
+
+  const handleMouseUp = (e: MouseEvent) => {
+    // // 判定linkRef.current === e.targetでなくaタグかどうかにする
+    // if (!linkRef.current || linkRef.current === e.target) return;
+    // linkRef.current.click();
   };
 
   return (
-    <li className={style.item} onClick={handleClick}>
+    <li
+      className={style.item}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+    >
       <div className={style.body}>
         <h2>
           <a href={link}>{title}</a>
