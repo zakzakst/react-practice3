@@ -1,4 +1,3 @@
-// 参考：https://inclusive-components.design/cards/
 "use client";
 import { useEffect, useRef, MouseEvent } from "react";
 import { card as style } from "./styles.css";
